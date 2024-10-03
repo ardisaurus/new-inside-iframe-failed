@@ -10,7 +10,7 @@ export default function useStoragePermission() {
   const isHavingPermissionFn = useCallback(async () => {
     try {
       return await hasStorageAccess();
-    } catch (e: any) {
+    } catch (e) {
       console.error('Error checking storage access:', e);
       return false;
     }
@@ -27,7 +27,7 @@ export default function useStoragePermission() {
     try {
       await requestStorageAccess();
       checkPermission();
-    } catch (e: any) {
+    } catch (e) {
       console.error('Error checking storage access:', e);
     }
   }, [checkPermission]);
